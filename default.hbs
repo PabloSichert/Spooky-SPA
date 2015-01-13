@@ -28,9 +28,6 @@
         <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
     </footer>
 
-    {{! Ghost outputs important scripts and data with this tag }}
-    {{ghost_foot}}
-
     {{! The main JavaScript file for Spooky SPA }}
     <script type="text/javascript" src="{{asset "js/script.min.js"}}"></script>
     {{> google-analytics}}

@@ -1,6 +1,8 @@
 partials/google-analytics.hbs
 bower_components/*
 
+.sass-cache/*
+
 b-cov
 *.seed
 *.log

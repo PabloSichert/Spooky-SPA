@@ -2,6 +2,7 @@ partials/google-analytics.hbs
 bower_components/*
 
 .sass-cache/*
+*.css.map
 
 b-cov
 *.seed

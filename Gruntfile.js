@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             js: {
                 main:     'src/js/*.js',
                 vendor: [ 'bower_components/jquery/dist/jquery.js',
-                          'bower_components/snabbt/snabbt.js',
+                          'bower_components/snabbt.js/snabbt.js',
                           'bower_components/velocity/velocity.js',
                           'bower_components/velocity/velocity.ui.js'
                 ]

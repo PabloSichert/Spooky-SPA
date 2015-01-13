@@ -1,0 +1,27 @@
+{
+  "name": "Spooky-SPA",
+  "description": "Smooth Single Page Application Theme for Ghost",
+  "version": "1.0.0",
+  "author": {
+    "name": "Pablo Sichert",
+    "url": "https://pablosichert.de"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "load-grunt-tasks": "*",
+    "time-grunt": "*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSichert/Spooky-SPA"
+  },
+  "homepage": "https://github.com/PabloSichert/Spooky-SPA"
+}

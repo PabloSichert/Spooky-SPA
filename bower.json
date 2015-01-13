@@ -1,0 +1,14 @@
+{
+  "name": "Spooky-SPA",
+  "version": "1.0.0",
+  "authors": [
+    "Pablo Sichert <mail@pablosichert.de>"
+  ],
+  "dependencies": {
+    "jquery": "^2.1.1",
+    "snabbt.js": "^0.3.0",
+    "velocity": "^1.2.1"
+  },
+  "license": "MIT",
+  "private": true
+}

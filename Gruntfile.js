@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         sass: {
             main: {
                 files: {
-                    '<%=dev.css%>': '<%=src.sass.main%>'
+                    '<%=dist.css%>': '<%=src.sass.main%>'
                 }
             }
         },
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             main: {
                 files: {
-                    '<%=dev.css%>': '<%=src.css.main%>'
+                    '<%=dist.css%>': '<%=src.css.main%>'
                 }
             }
         },
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js-minify', ['uglify']);
     grunt.registerTask('min.js', ['concat:js', 'uglify']);
 
-    grunt.registerTask('production', ['min.css', 'min.js']);
+    grunt.registerTask('development', ['css', 'js', 'watch']);
 
-    return grunt.registerTask('default', ['css', 'js', 'watch']);
+    return grunt.registerTask('default', ['min.css', 'min.js']);
 };

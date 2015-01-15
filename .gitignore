@@ -1,5 +1,8 @@
 partials/google-analytics.hbs
-bower_components/*
+bower_components
+
+assets/*
+!assets/fonts
 
 .sass-cache/*
 *.css.map

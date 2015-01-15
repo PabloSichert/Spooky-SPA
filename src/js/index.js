@@ -133,7 +133,7 @@
 
             if (link.host == window.location.host) { // Test if link is internal
 
-                var overlay = overlayStack.pop();console.log(overlay);
+                var overlay = overlayStack.pop();
                 var placeholderRect = overlay.$placeholder[0].getBoundingClientRect();
 
                 $body.css({
@@ -174,7 +174,7 @@
                     })
                 ;
 
-                overlay.$fullPost.remove(); console.log(overlay.$fullPost);
+                overlay.$fullPost.remove();
                 overlay.$postExcerpt.css({display: '', opacity: ''});
 
                 return false;

@@ -42,14 +42,9 @@ module.exports = function(grunt) {
             }
         },
         
-        dev: {
+        dist: {
             css: 'assets/css/style.css',
             js: 'assets/js/script.js'
-        },
-        
-        dist: {
-            css: 'assets/css/style.min.css',
-            js: 'assets/js/script.min.js'
         },
                      
         // =============
@@ -70,11 +65,11 @@ module.exports = function(grunt) {
             },
             css: {
                 src: ['<%=src.css.vendor%>', '<%=src.css.main%>'],
-                dest: '<%=dev.css%>'
+                dest: '<%=dist.css%>'
             },
             js: {
                 src: ['<%=src.js.vendor%>', '<%=src.js.main%>'],
-                dest: '<%=dev.js%>'
+                dest: '<%=dist.js%>'
             }
         },
         
@@ -93,7 +88,7 @@ module.exports = function(grunt) {
             },
             main: {
                 files: {
-                    '<%=dist.css%>': '<%=dev.css%>'
+                    '<%=dist.css%>': '<%=dist.css%>'
                 }
             }
         },
@@ -107,7 +102,7 @@ module.exports = function(grunt) {
             },
             main: {
                 files: {
-                    '<%=dist.js%>': '<%=dev.js%>'
+                    '<%=dist.js%>': '<%=dist.js%>'
                 }
             }
         },

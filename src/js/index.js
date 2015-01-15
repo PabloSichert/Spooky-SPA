@@ -8,9 +8,10 @@
 
     var $document = $(document);
     var $body = $('body');
+    var overlayStack = [];
 
     $document
-        .on('click', 'a, .post-title>a, .read-more', function(event) {
+        .on('click', '.post-title>a, .read-more', function(event) {
             var link = this;
             var $link = $(link);
         
@@ -20,57 +21,62 @@
                 var $postContainer = $postWrap.find('.post-container');
                 var $postExcerpt = $postContainer.find('.post');
                 var postRect = $postWrap[0].getBoundingClientRect();
-                
-                $.ajax({
-                    url: link.href,
-                    success: function(data) {
-                        var $data = $(data);
-                        var $post = $data.find('article.post');
-                        
-                        $postContainer.append(
-                            $post
-                                .css({
-                                    position: 'absolute',
-                                    top: 0,
-                                    width: '100%',
-                                    opacity: 0
-                                })
-                                .velocity({
-                                        opacity: 1
-                                    }, {
-                                        complete: function() {
-                                            $postExcerpt.css({
-                                                display: 'none',
-                                                opacity: 0
-                                            });
-                                            $post.css({
-                                                position: ''
-                                            });
-                                        }
-                                })
-                        );
-                    }
-                });
-
-                var placeholder = $('<div>')
+                var $placeholder = $('<div>')
                     .prop({class: 'post-wrap'})
                     .css({
                         width: '100%',
                         height: postRect.height
                     })
                 ;
+                var $fullPost = $();
+
+                var overlayIndex = overlayStack.push({
+                    $postWrap: $postWrap,
+                    $postContainer: $postContainer,
+                    $postExcerpt: $postExcerpt,
+                    $placeholder: $placeholder,
+                    $fullPost: $fullPost
+                });
+                
+                $.ajax({
+                    url: link.href,
+                    success: function(data) {
+                        var $data = $(data);
+                        var $fullPost = overlayStack[overlayIndex - 1].$fullPost = $data.find('article.post');
+                        
+                        $postContainer.append($fullPost);
+
+                        $fullPost
+                            .css({
+                                position: 'absolute',
+                                top: 0,
+                                width: '100%',
+                                opacity: 0
+                            })
+                            .snabbt({
+                                opacity: 1,
+                                callback: function() {
+                                    $postExcerpt.css({
+                                        display: 'none',
+                                        opacity: 0
+                                    });
+                                    $fullPost.css({
+                                        position: ''
+                                    });
+                                }
+                            })
+                        ;
+                    }
+                });
 
                 $postWrap
-                    .before(placeholder)
+                    .before($placeholder)
                     .css({
                         position: 'fixed',
                         width: '100%',
                         top: 0,
                         backgroundColor: 'white',
                         zIndex: 123
-                    })
-                    .velocity({
-                        paddingTop: 150
                     })
                     .snabbt({
                         duration: 400,
@@ -102,6 +108,75 @@
                     })
                 ;
                 
+                $postContainer
+                    .snabbt({
+                        duration: 200,
+                        easing: function(value) {
+                            return 1 - Math.pow(1-value, 2);
+                        },
+                        position: [
+                            0,
+                            150,
+                            0
+                        ]
+                    })
+                ;
+
+                return false;
+            } else {
+                return true; // Follow external link
+            }
+        })
+        .on('click', '.back-button', function(event) {
+            var link = this;
+            var $link = $(link);
+
+            if (link.host == window.location.host) { // Test if link is internal
+
+                var overlay = overlayStack.pop();console.log(overlay);
+                var placeholderRect = overlay.$placeholder[0].getBoundingClientRect();
+
+                $body.css({
+                    overflowY: ''
+                });
+
+                overlay.$postWrap
+                    .css({
+                        overflowY: ''
+                    })
+                    .snabbt({
+                        duration: 200,
+                        position: [
+                            0,
+                            placeholderRect.top,
+                            0
+                        ],
+                        height: placeholderRect.height,
+                        callback: function() {
+
+                            overlay.$placeholder.remove();
+
+                            overlay.$postWrap
+                                .removeAttr('style');
+                            ;
+                        }
+                    })
+                ;
+
+                overlay.$postContainer
+                    .snabbt({
+                        duration: 200,
+                        position: [
+                            0,
+                            0,
+                            0
+                        ]
+                    })
+                ;
+
+                overlay.$fullPost.remove(); console.log(overlay.$fullPost);
+                overlay.$postExcerpt.css({display: '', opacity: ''});
+
                 return false;
             } else {
                 return true; // Follow external link

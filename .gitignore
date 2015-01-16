@@ -4,6 +4,8 @@ bower_components
 assets/*
 !assets/fonts
 
+src/js/google-analytics.js
+
 .sass-cache/*
 *.css.map
 

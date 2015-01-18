@@ -1,0 +1,192 @@
+/* ==========================================================================
+     Single Post - When you click on an individual post
+     ========================================================================== */
+
+/* Stop .full-img from creating horizontal scroll - slight hack due to
+     imperfections with browser width % calculations and rounding */
+
+.post-template {
+    .content {
+        overflow: hidden;
+    }
+    .post {
+        margin-top: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+        &:after {
+            display: none;
+        }
+    }
+}
+
+/* Tweak the .post wrapper style */
+
+/* Kill that stylish little circle that was on the border, too */
+
+/* Keep images centred and within the bounds of the post-width */
+
+.post-content {
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 0.6em 0;
+    }
+    .full-img {
+        width: 126%;
+        max-width: none;
+        margin: 0 -13%;
+    }
+}
+
+/* The author credit area after the post */
+
+.post-footer {
+    position: relative;
+    margin: 6rem 0 0 0;
+    padding: 6rem 0 0 0;
+    border-top: #EBF2F6 1px solid;
+    h4 {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+    p {
+        margin: 1rem 0;
+        font-size: 1.4rem;
+        line-height: 1.75em;
+    }
+}
+
+/* list of author links - location / url */
+
+.author-meta {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-style: italic;
+    color: #9EABB3;
+    a {
+        color: #9EABB3;
+        &:hover {
+            color: #111;
+        }
+    }
+}
+
+/* Create some space to the right for the share links */
+
+.post-footer {
+    .author {
+        margin-right: 180px;
+    }
+    h4 a {
+        color: #2e2e2e;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .share {
+        position: absolute;
+        top: 6rem;
+        right: 0;
+        width: 140px;
+        a {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin: 1rem 1.6rem 1.6rem 0;
+            color: #BBC7CC;
+            text-decoration: none;
+            &:hover {
+                color: #50585D;
+            }
+        }
+    }
+}
+
+/* Drop the share links in the space to the right.
+     Doing it like this means it's easier for the author bio
+     to be flexible at smaller screen sizes while the share
+     links remain at a fixed width the whole time */
+
+/* The subscribe icon on the footer */
+
+.subscribe {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -15px;
+    border: #EBF2F6 1px solid;
+    text-align: center;
+    line-height: 2.4rem;
+    border-radius: 50px;
+    background: #FFF;
+    transition: box-shadow 0.5s;
+    &:before {
+        color: #D2DEE3;
+        font-size: 10px;
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        font-weight: 700;
+        transition: color 0.5s ease;
+    }
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.05) 0 0 0 3px;
+        transition: box-shadow 0.25s;
+        &:before {
+            color: #50585D;
+        }
+    }
+}
+
+/* The RSS icon, inserted via icon font */
+
+/* Add a box shadow to on hover */
+
+/* CSS tooltip saying "Subscribe!" - initially hidden */
+
+.tooltip {
+    opacity: 0;
+    display: block;
+    width: 53px;
+    padding: 4px 8px 5px 8px;
+    position: absolute;
+    top: -23px;
+    left: -21px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1em;
+    text-align: center;
+    background: #50585D;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, top 0.3s ease;
+    &:after {
+        content: " ";
+        border-width: 5px 5px 0 5px;
+        border-style: solid;
+        border-color: #50585D transparent;
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        margin-left: -5px;
+        z-index: 220;
+        width: 0;
+    }
+}
+
+/* The little chiclet arrow under the tooltip, pointing down */
+
+/* On hover, show the tooltip! */
+
+.subscribe:hover .tooltip {
+    opacity: 1;
+    top: -33px;
+}

@@ -2,9 +2,6 @@
      Single Post - When you click on an individual post
      ========================================================================== */
 
-/* Stop .full-img from creating horizontal scroll - slight hack due to
-     imperfections with browser width % calculations and rounding */
-
 .post-template {
     .content {
         overflow: hidden;
@@ -18,12 +15,6 @@
         }
     }
 }
-
-/* Tweak the .post wrapper style */
-
-/* Kill that stylish little circle that was on the border, too */
-
-/* Keep images centred and within the bounds of the post-width */
 
 .post-content {
     img {
@@ -40,8 +31,6 @@
     }
 }
 
-/* list of author links - location / url */
-
 .author-meta {
     padding: 0;
     margin: 0;
@@ -57,8 +46,6 @@
         }
     }
 }
-
-/* Create some space to the right for the share links */
 
 .post-footer {
     position: relative;
@@ -102,13 +89,6 @@
     }
 }
 
-/* Drop the share links in the space to the right.
-     Doing it like this means it's easier for the author bio
-     to be flexible at smaller screen sizes while the share
-     links remain at a fixed width the whole time */
-
-/* The subscribe icon on the footer */
-
 .subscribe {
     width: 28px;
     height: 28px;
@@ -140,12 +120,6 @@
     }
 }
 
-/* The RSS icon, inserted via icon font */
-
-/* Add a box shadow to on hover */
-
-/* CSS tooltip saying "Subscribe!" - initially hidden */
-
 .tooltip {
     opacity: 0;
     display: block;
@@ -176,10 +150,6 @@
         width: 0;
     }
 }
-
-/* The little chiclet arrow under the tooltip, pointing down */
-
-/* On hover, show the tooltip! */
 
 .subscribe:hover .tooltip {
     opacity: 1;

@@ -1,19 +1,9 @@
 /* ==========================================================================
      Single Post - When you click on an individual post
      ========================================================================== */
-
-.post-template {
-    .content {
-        overflow: hidden;
-    }
-    .post {
-        margin-top: 0;
-        border-bottom: none;
-        padding-bottom: 0;
-        &:after {
-            display: none;
-        }
-    }
+.post {
+    box-sizing: border-box;
+    padding: 0 30px;
 }
 
 .post-content {

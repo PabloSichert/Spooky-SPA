@@ -2,19 +2,6 @@
      Animations
      ========================================================================== */
 
-/* Used to fade in title/desc on the home page */
-@keyframes fade-in-down {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
 /* Used to bounce .scroll-down on home page */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {

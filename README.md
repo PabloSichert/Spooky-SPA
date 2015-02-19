@@ -2,6 +2,8 @@
 
 Spooky SPA theme for [Ghost](http://github.com/tryghost/ghost/).
 
+View this template in action at https://pablosichert.de!
+
 ## Installation
 
 First, go and [set up](https://github.com/tryghost/ghost/#getting-started) your Ghost blog!
